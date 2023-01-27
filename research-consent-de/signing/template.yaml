@@ -1,0 +1,42 @@
+---
+consent:
+  version: "1"
+  author: Smart4Health
+signing:
+  title: Einverständniserklärung unterschreiben
+  review: Einverständniserklärung überprüfen
+  summary: |
+    Ich wurde über die Verwendung meiner Gesundheitsdaten und die damit verbundenen Risiken aufgeklärt und gebe meine Einwilligung im Rahmen des zuvor
+    Erklärten.<br><br>
+    Ich hatte ausreichend Zeit, die Informationen zu prüfen und Fragen zu stellen, die zu meiner Zufriedenheit beantwortet wurden.<br><br>
+    Ich stimme der Verarbeitung meiner personenbezogenen Daten durch das Hasso-Plattner-Institut für Digital Engineering gGmbH, Prof.-Dr.-Helmert-Str.
+    2-3 14482 Potsdam, Deutschland (Geschäftsführer: Prof. Dr. Christoph Meinel) zum Zwecke der Bereitstellung meiner Gesundheitsdaten für die
+    Forschungsplattform Smart4Health Plattform zu.<br><br>
+    Ich wurde darüber informiert, dass ich ein Exemplar des Informationsblatts, der Datenschutzerklärung und der unterzeichneten Einverständniserklärung
+    erhalten werde.<br><br>
+    Mit meiner Unterschrift erkläre ich mich damit einverstanden, dass meine Gesundheitsdaten unter den zuvor ausgewählten Bedingungen an die
+    Smart4Health-Forschungsplattform übermittelt werden.
+  signature:
+    clear: Leeren
+    errors:
+      required: Bitte tragen Sie Ihre Unterschrift in das dafür vorgesehene Feld ein
+  firstName:
+    label: Vorname
+  lastName:
+    label: Nachname
+  email:
+    label: Email
+    errors:
+      required: Bitte geben Sie eine gültige Email an
+  conditions:
+    - text: Ich verstehe, dass dies eine rechtsgültige Darstellung meiner Unterschrift ist.
+      required: true
+  submit: UNTERSCHREIBEN
+  cancel:
+    button: ABBRECHEN
+    confirmHeader: Sind Sie sicher, dass Sie den Zustimmungsprozess beenden wollen?
+    confirmContent: |
+      Wenn Sie den Prozess jetzt beenden, müssen Sie das Zustimmungsverfahren wiederholen, bevor Sie an einer Smart4Health Studie teilnehmen
+      können.
+    confirmCancel: "Ja"
+    rejectCancel: "Nein"

@@ -1,0 +1,54 @@
+---
+consent:
+  version: "1"
+  author: Smart4Health
+  id: s4h-consent-de
+  lang: de
+fonts:
+  default: Helvetica
+options:
+  width: 8.75
+  height: 8.75
+  inputs:
+    - page: 8
+      "yes":
+        x: 72.50
+        y: 122.5
+      "no":
+        x: 72.50
+        y: 98.5
+    - page: 9
+      "yes":
+        x: 72.50
+        y: 610.5
+      "no":
+        x: 72.50
+        y: 586.0
+    - page: 9
+      "yes":
+        x: 72.50
+        y: 460.0
+      "no":
+        x: 72.50
+        y: 436.0
+    - page: 9
+      "yes":
+        x: 72.50
+        y: 226.0
+      "no":
+        x: 72.50
+        y: 202.0
+signing:
+  nameAndDate:
+    fontSize: 16
+    page: 9
+    x: 330
+    y: 152
+    maxWidth: 236
+    dateFormat: dd.MM.yyyy
+  signature:
+    page: 9
+    x: 330
+    y: 170
+    maxWidth: 236
+    maxHeight: 59

@@ -1,0 +1,198 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Consent Signing Template",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "consent": {
+      "$ref": "#/definitions/Consent"
+    },
+    "signing": {
+      "$ref": "#/definitions/Signing"
+    }
+  },
+  "required": [
+    "consent",
+    "signing"
+  ],
+  "definitions": {
+    "Consent": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "version": {
+          "type": "string"
+        },
+        "author": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "version",
+        "author"
+      ]
+    },
+    "Signing": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "review": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "signature": {
+          "$ref": "#/definitions/Signature"
+        },
+        "firstName": {
+          "$ref": "#/definitions/Name"
+        },
+        "lastName": {
+          "$ref": "#/definitions/Name"
+        },
+        "email": {
+          "$ref": "#/definitions/Email"
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Condition"
+          }
+        },
+        "submit": {
+          "type": "string"
+        },
+        "cancel": {
+          "$ref": "#/definitions/Cancel"
+        }
+      },
+      "required": [
+        "title",
+        "review",
+        "signature",
+        "firstName",
+        "lastName",
+        "email",
+        "conditions",
+        "submit",
+        "cancel"
+      ]
+    },
+    "Signature": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "clear": {
+          "type": "string"
+        },
+        "errors": {
+          "$ref": "#/definitions/SignatureErrors"
+        }
+      },
+      "required": [
+        "clear",
+        "errors"
+      ]
+    },
+    "SignatureErrors": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "required": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "required"
+      ]
+    },
+    "Name": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "label": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "label"
+      ]
+    },
+    "Email": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "errors": {
+          "$ref": "#/definitions/EmailErrors"
+        }
+      },
+      "required": [
+        "label",
+        "errors"
+      ]
+    },
+    "EmailErrors": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "required": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "required"
+      ]
+    },
+    "Condition": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "required": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "text",
+        "required"
+      ]
+    },
+    "Cancel": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "button": {
+          "type": "string"
+        },
+        "confirmHeader": {
+          "type": "string"
+        },
+        "confirmContent": {
+          "type": "string"
+        },
+        "confirmCancel": {
+          "type": "string"
+        },
+        "rejectCancel": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "button",
+        "confirmHeader",
+        "confirmContent",
+        "confirmCancel",
+        "rejectCancel"
+      ]
+    }
+  }
+}

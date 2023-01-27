@@ -1,0 +1,703 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Consent Template",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "consent": {
+      "$ref": "#/definitions/Config"
+    },
+    "defaults": {
+      "$ref": "#/definitions/Defaults"
+    },
+    "welcome": {
+      "$ref": "#/definitions/Welcome"
+    },
+    "eligibility": {
+      "$ref": "#/definitions/Eligibility"
+    },
+    "information": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Information"
+      }
+    },
+    "options": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Option"
+      }
+    },
+    "quiz": {
+      "$ref": "#/definitions/Quiz"
+    },
+    "confirm": {
+      "$ref": "#/definitions/ConfirmConsent"
+    },
+    "review": {
+      "$ref": "#/definitions/Review"
+    },
+    "glossary": {
+      "$ref": "#/definitions/GlossaryTemplate"
+    }
+  },
+  "required": [
+    "consent",
+    "defaults",
+    "welcome",
+    "information"
+  ],
+  "definitions": {
+    "Config": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "version": {
+          "type": "string"
+        },
+        "options": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "author": {
+          "type": "string"
+        },
+        "learnMoreDisplayType": {
+          "type": "string",
+          "enum": [
+            "MODAL",
+            "PAGE",
+            "NONE"
+          ]
+        }
+      }
+    },
+    "Defaults": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "navigation": {
+          "$ref": "#/definitions/NavigationDefaults"
+        }
+      },
+      "required": [
+        "navigation"
+      ]
+    },
+    "NavigationDefaults": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "back": {
+          "type": "string"
+        },
+        "next": {
+          "type": "string"
+        },
+        "learnMore": {
+          "type": "string"
+        },
+        "answer": {
+          "type": "string"
+        },
+        "exit": {
+          "type": "string"
+        },
+        "share": {
+          "type": "string"
+        },
+        "close": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "back",
+        "next",
+        "learnMore",
+        "answer",
+        "exit",
+        "share"
+      ]
+    },
+    "Welcome": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "navigation": {
+          "$ref": "#/definitions/WelcomeNavigationTexts"
+        }
+      },
+      "required": [
+        "title",
+        "image",
+        "description"
+      ]
+    },
+    "WelcomeNavigationTexts": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "next": {
+          "type": "string"
+        }
+      }
+    },
+    "Eligibility": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "introduction": {
+          "$ref": "#/definitions/EligibilityIntroduction"
+        },
+        "checks": {
+          "$ref": "#/definitions/EligibilityChecks"
+        },
+        "ineligible": {
+          "$ref": "#/definitions/EligibilityFailed"
+        },
+        "completed": {
+          "$ref": "#/definitions/EligibilityCompleted"
+        }
+      },
+      "required": [
+        "introduction",
+        "checks",
+        "ineligible",
+        "completed"
+      ]
+    },
+    "EligibilityIntroduction": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "navigation": {
+          "$ref": "#/definitions/EligibilityIntroductionNavigation"
+        }
+      },
+      "required": [
+        "title",
+        "content",
+        "image"
+      ]
+    },
+    "EligibilityIntroductionNavigation": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "next": {
+          "type": "string"
+        },
+        "back": {
+          "type": "string"
+        }
+      }
+    },
+    "EligibilityChecks": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "checks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EligibilityCheck"
+          }
+        },
+        "navigation": {
+          "$ref": "#/definitions/EligibilityChecksNavigation"
+        }
+      },
+      "required": [
+        "title",
+        "checks"
+      ]
+    },
+    "EligibilityCheck": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "check": {
+          "type": "string"
+        },
+        "eligible": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "check",
+        "eligible"
+      ]
+    },
+    "EligibilityChecksNavigation": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "next": {
+          "type": "string"
+        },
+        "back": {
+          "type": "string"
+        }
+      }
+    },
+    "EligibilityFailed": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "navigation": {
+          "$ref": "#/definitions/EligibilityFailedNavigation"
+        }
+      },
+      "required": [
+        "title",
+        "content",
+        "image"
+      ]
+    },
+    "EligibilityFailedNavigation": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "next": {
+          "type": "string"
+        }
+      }
+    },
+    "EligibilityCompleted": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "navigation": {
+          "$ref": "#/definitions/EligibilityCompletedNavigation"
+        }
+      },
+      "required": [
+        "title",
+        "image",
+        "content"
+      ]
+    },
+    "EligibilityCompletedNavigation": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "next": {
+          "type": "string"
+        }
+      }
+    },
+    "Information": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "navigation": {
+          "$ref": "#/definitions/InformationNavigation"
+        }
+      },
+      "required": [
+        "title",
+        "image",
+        "summary",
+        "description"
+      ]
+    },
+    "InformationNavigation": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "next": {
+          "type": "string"
+        },
+        "back": {
+          "type": "string"
+        },
+        "learnMore": {
+          "type": "string"
+        },
+        "close": {
+          "type": "string"
+        }
+      }
+    },
+    "Option": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "accept": {
+          "type": "string"
+        },
+        "reject": {
+          "type": "string"
+        },
+        "navigation": {
+          "$ref": "#/definitions/OptionNavigation"
+        },
+        "popover": {
+          "type": "string"
+        },
+        "requiredPopup": {
+          "$ref": "#/definitions/RequiredPopup"
+        }
+      },
+      "required": [
+        "title",
+        "summary",
+        "description",
+        "required"
+      ]
+    },
+    "OptionNavigation": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "next": {
+          "type": "string"
+        },
+        "back": {
+          "type": "string"
+        },
+        "learnMore": {
+          "type": "string"
+        },
+        "close": {
+          "type": "string"
+        }
+      }
+    },
+    "RequiredPopup": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "confirm": {
+          "type": "string"
+        },
+        "cancel": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "text",
+        "confirm",
+        "cancel"
+      ]
+    },
+    "Quiz": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "introduction": {
+          "$ref": "#/definitions/QuizIntroduction"
+        },
+        "questions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QuizQuestion"
+          }
+        },
+        "failed": {
+          "$ref": "#/definitions/QuizFailed"
+        }
+      },
+      "required": [
+        "introduction",
+        "questions",
+        "failed"
+      ]
+    },
+    "QuizIntroduction": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "navigation": {
+          "$ref": "#/definitions/QuizIntroductionNavigation"
+        }
+      },
+      "required": [
+        "title",
+        "image",
+        "content"
+      ]
+    },
+    "QuizIntroductionNavigation": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "next": {
+          "type": "string"
+        },
+        "back": {
+          "type": "string"
+        }
+      }
+    },
+    "QuizQuestion": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "question": {
+          "type": "string"
+        },
+        "answers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QuizAnswer"
+          }
+        },
+        "navigation": {
+          "$ref": "#/definitions/QuizQuestionNavigation"
+        }
+      },
+      "required": [
+        "question",
+        "answers"
+      ]
+    },
+    "QuizAnswer": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "answer": {
+          "type": "string"
+        },
+        "correct": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "answer"
+      ]
+    },
+    "QuizQuestionNavigation": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "next": {
+          "type": "string"
+        },
+        "back": {
+          "type": "string"
+        },
+        "answer": {
+          "type": "string"
+        }
+      }
+    },
+    "QuizFailed": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "navigation": {
+          "$ref": "#/definitions/QuizFailedNavigation"
+        }
+      },
+      "required": [
+        "title",
+        "content"
+      ]
+    },
+    "QuizFailedNavigation": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "next": {
+          "type": "string"
+        }
+      }
+    },
+    "ConfirmConsent": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "navigation": {
+          "$ref": "#/definitions/ConfirmConsentNavigation"
+        }
+      },
+      "required": [
+        "title",
+        "image",
+        "content"
+      ]
+    },
+    "ConfirmConsentNavigation": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "next": {
+          "type": "string"
+        },
+        "back": {
+          "type": "string"
+        }
+      }
+    },
+    "Review": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "EXTERNAL"
+          ]
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "source"
+      ]
+    },
+    "GlossaryTemplate": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GlossaryItem"
+          }
+        },
+        "config": {
+          "$ref": "#/definitions/Config_2"
+        }
+      },
+      "required": [
+        "items"
+      ]
+    },
+    "GlossaryItem": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "config": {
+          "$ref": "#/definitions/Config_1"
+        }
+      },
+      "required": [
+        "id",
+        "text"
+      ]
+    },
+    "Config_1": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "reviewPageTitle": {
+          "type": "string"
+        }
+      }
+    },
+    "Config_2": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "reviewPageTitle": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

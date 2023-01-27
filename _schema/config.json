@@ -1,0 +1,251 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Consent Pdf Config",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "consent": {
+      "$ref": "#/definitions/ConsentOverviewConfig"
+    },
+    "fonts": {
+      "$ref": "#/definitions/ConsentFontsConfig"
+    },
+    "options": {
+      "$ref": "#/definitions/ConsentOptionsConfig"
+    },
+    "signing": {
+      "$ref": "#/definitions/ConsentSigningConfig"
+    }
+  },
+  "required": [
+    "consent",
+    "fonts",
+    "signing"
+  ],
+  "definitions": {
+    "ConsentOverviewConfig": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "version": {
+          "type": "string"
+        },
+        "author": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "lang": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "version",
+        "author",
+        "id",
+        "lang"
+      ]
+    },
+    "ConsentFontsConfig": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "useEmbedded": {
+          "type": "boolean"
+        }
+      }
+    },
+    "ConsentOptionsConfig": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "width": {
+          "type": "number"
+        },
+        "height": {
+          "type": "number"
+        },
+        "inputs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ConsentInputConfig"
+          }
+        }
+      },
+      "required": [
+        "width",
+        "height",
+        "inputs"
+      ]
+    },
+    "ConsentInputConfig": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "page": {
+          "type": "integer"
+        },
+        "yes": {
+          "$ref": "#/definitions/OptionCoordinateConfig"
+        },
+        "no": {
+          "$ref": "#/definitions/OptionCoordinateConfig"
+        }
+      },
+      "required": [
+        "page",
+        "yes",
+        "no"
+      ]
+    },
+    "OptionCoordinateConfig": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "x",
+        "y"
+      ]
+    },
+    "ConsentSigningConfig": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/SigningNameConfig"
+        },
+        "date": {
+          "$ref": "#/definitions/SigningDateConfig"
+        },
+        "nameAndDate": {
+          "$ref": "#/definitions/SigningNameAndDateConfig"
+        },
+        "signature": {
+          "$ref": "#/definitions/SigningSignatureConfig"
+        }
+      },
+      "required": [
+        "signature"
+      ]
+    },
+    "SigningNameConfig": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "page": {
+          "type": "integer"
+        },
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "maxWidth": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "page",
+        "x",
+        "y",
+        "maxWidth",
+        "fontSize"
+      ]
+    },
+    "SigningDateConfig": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "page": {
+          "type": "integer"
+        },
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "fontSize": {
+          "type": "number"
+        },
+        "format": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "page",
+        "x",
+        "y",
+        "fontSize",
+        "format"
+      ]
+    },
+    "SigningNameAndDateConfig": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "page": {
+          "type": "integer"
+        },
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "maxWidth": {
+          "type": "number"
+        },
+        "fontSize": {
+          "type": "number"
+        },
+        "dateFormat": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "page",
+        "x",
+        "y",
+        "maxWidth",
+        "fontSize",
+        "dateFormat"
+      ]
+    },
+    "SigningSignatureConfig": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "page": {
+          "type": "integer"
+        },
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "maxWidth": {
+          "type": "number"
+        },
+        "maxHeight": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "page",
+        "x",
+        "y"
+      ]
+    }
+  }
+}

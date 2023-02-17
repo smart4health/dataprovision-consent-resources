@@ -1,5 +1,13 @@
 # Smart4Health Data-provision Consent Resources
 
+## Acknowledgements
+
+<img src="./img/eu.jpg" align="left" alt="European Flag" width="60">
+
+This project has received funding from the European Union’s Horizon 2020 research and innovation programme under grant agreement No 826117.
+
+## About
+
 The [Smart4Health Data-provision Consent Service](https://github.com/smart4health/dataprovision-consent-service) takes
 care of guiding
 the citizen through the consent process in

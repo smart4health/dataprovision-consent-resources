@@ -62,3 +62,25 @@ Notice that pdf page numbers are 0-indexed.
 
 PDFs should be provided with a ISO compliant export, e.g. PDF/A and at least PDF Version 1.5. Otherwise, inserted texts
 could be hidden on some PDF viewers.
+
+
+## Code Stats
+Generated with [tokei](https://github.com/XAMPPRocky/tokei)
+
+```
+===============================================================================
+ Language            Files        Lines         Code     Comments       Blanks
+===============================================================================
+ CSS                     8          454          178          186           90
+ JSON                    3         1152         1152            0            0
+ Python                  1           32           22            1            9
+ SVG                    90         4086         4028           58            0
+ YAML                    6         1117         1077            0           40
+-------------------------------------------------------------------------------
+ Markdown                1           66            0           41           25
+ |- Shell                1            5            5            0            0
+ (Total)                             71            5           41           25
+===============================================================================
+ Total                 109         6907         6457          286          164
+===============================================================================
+```
